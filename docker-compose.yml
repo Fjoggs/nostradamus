@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  nostradamus:
+    container_name: nostradamus
+    image: nostradamus.anno1337.com:latest
+    build:
+      target: latest
+      context: ./
+    volumes:
+      - ./:./
+    ports:
+      - "3000:3000"
+    command: ["yarn", "dev"]
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: nostradamusdb
+      DATABASE_HOST: 174.138.8.216
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: nostradamus
+volumes:
+  database-volume:

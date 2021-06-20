@@ -1,0 +1,13 @@
+services:
+  postgres:
+    container_name: nostradamus-database
+    image: postgres
+    environment:
+      DATABASE_HOST: postgres
+      POSTGRES_USER: nostradamus
+      POSTGRES_PASSWORD: nostradamus
+    volumes:
+      - database-volume:/var/lib/postgresql/data
+      - ./data:/backup
+    ports:
+      - "7000:5432"
